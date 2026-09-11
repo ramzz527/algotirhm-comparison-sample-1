@@ -28,8 +28,10 @@ run-py:
 
 test: test-c test-py
 
-test-c: tests/test_sort.out
-	@./tests/test_sort.out
+test-c: tests/test_bubble_sort.out tests/test_insertion_sort.out tests/test_shell_sort.out
+	@./tests/test_bubble_sort.out
+	@./tests/test_insertion_sort.out
+	@./tests/test_shell_sort.out
 
 test-py:
 	@python3 -m unittest discover -s tests -v
@@ -47,8 +49,14 @@ debug: src/main.debug.out
 %.debug.out: %.c
 	$(CC) $(DEBUGFLAGS) -I$(@D) -o $@ $(wildcard $(@D)/*.c)
 
-tests/test_sort.out: tests/test_sort.c src/sort.c src/sort.h
-	$(CC) $(CFLAGS) -Isrc -o $@ tests/test_sort.c src/sort.c
+tests/test_bubble_sort.out: tests/test_bubble_sort.c src/bubble_sort.c src/sort.h
+	$(CC) $(CFLAGS) -Isrc -o $@ tests/test_bubble_sort.c src/bubble_sort.c
+
+tests/test_insertion_sort.out: tests/test_insertion_sort.c src/insertion_sort.c src/sort.h
+	$(CC) $(CFLAGS) -Isrc -o $@ tests/test_insertion_sort.c src/insertion_sort.c
+
+tests/test_shell_sort.out: tests/test_shell_sort.c src/shell_sort.c src/sort.h
+	$(CC) $(CFLAGS) -Isrc -o $@ tests/test_shell_sort.c src/shell_sort.c
 
 clean:
 	rm -f src/*.out tests/*.out

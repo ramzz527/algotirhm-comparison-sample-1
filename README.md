@@ -170,13 +170,22 @@ algorithm-env/
 ├── .vscode/                         # 빌드·디버그 설정 (F5, Cmd+Shift+B)
 ├── Makefile                         # run · test · debug · clean
 ├── src/
-│   ├── sort.h · sort.c              # C 구현
+│   ├── sort.h                        # C 함수 선언
+│   ├── bubble_sort.c                 # 버블 정렬
+│   ├── insertion_sort.c              # 삽입 정렬
+│   ├── shell_sort.c                  # 셸 정렬
 │   ├── main.c                       # C 실행 예제
-│   ├── sort.py                      # Python 구현
+│   ├── bubble_sort.py                # 버블 정렬
+│   ├── insertion_sort.py             # 삽입 정렬
+│   ├── shell_sort.py                 # 셸 정렬
 │   └── main.py                      # Python 실행 예제
 └── tests/
-    ├── test_sort.c                  # C 유닛 테스트 (표준 C만 사용)
-    └── test_sort.py                 # Python 유닛 테스트 (unittest)
+  ├── test_bubble_sort.c            # 버블 정렬 C 유닛 테스트
+  ├── test_insertion_sort.c         # 삽입 정렬 C 유닛 테스트
+  ├── test_shell_sort.c             # 셸 정렬 C 유닛 테스트
+  ├── test_bubble_sort.py           # 버블 정렬 Python 유닛 테스트
+  ├── test_insertion_sort.py        # 삽입 정렬 Python 유닛 테스트
+  └── test_shell_sort.py            # 셸 정렬 Python 유닛 테스트
 ```
 
 ## 규약
