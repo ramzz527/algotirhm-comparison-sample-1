@@ -63,6 +63,16 @@ int main(void) {
         const int want[1] = {0};
         expectSorted("삽입 정렬: 빈 배열", insertionSort, a, want, 0);
     }
+    {
+        int a[] = {6, 8, 5, 9, 10, 1, 7, 2, 4, 3};
+        const int want[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        expectSorted("셸 정렬: 섞인 배열", shellSort, a, want, 10);
+    }
+    {
+        int a[] = {5, 4, 3, 2, 1};
+        const int want[] = {1, 2, 3, 4, 5};
+        expectSorted("버블 정렬: 역순 배열", bubbleSort, a, want, 5);
+    }
 
     printf("\n%d checks, %d failures\n", checks, failures);
     return failures == 0 ? 0 : 1;
